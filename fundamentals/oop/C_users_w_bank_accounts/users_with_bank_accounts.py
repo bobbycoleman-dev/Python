@@ -13,6 +13,7 @@ class BankAccount:
 
     def deposit(self, amount):
         self.balance += amount
+        self.yield_interest()
         return self
 
     def withdraw(self, amount):
