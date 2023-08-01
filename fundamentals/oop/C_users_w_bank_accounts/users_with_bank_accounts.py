@@ -20,24 +20,22 @@ class BankAccount:
     def withdraw(self, amount):
         if self.balance - amount >= 0:
             self.balance -= amount
-            return self
         else:
             print("Insufficient funds: Charging a $5 fee.")
             self.balance -= 5
-            return self
+        return self
 
     def display_account_info(self, user_name, account_type):
         if account_type == "checking":
             print(f"{user_name}'s Checking Balance: ${self.balance}")
         else:
             print(f"{user_name}'s Savings Balance: ${self.balance}")
-
         return self
 
     def yield_interest(self):
         if self.balance > 0:
             self.balance = round(((self.balance * self.int_rate) + self.balance), 2)
-            return self
+        return self
 
 
 # USER CLASS
@@ -55,18 +53,16 @@ class User:
     def make_deposit(self, amount, account_type):
         if account_type == "checking":
             self.checking_account.balance += amount
-            return self
         elif account_type == "savings":
             self.savings_account.balance += amount
-            return self
+        return self
 
     def make_withdraw(self, amount, account_type):
         if account_type == "checking":
             self.checking_account.withdraw(amount)
-            return self
         elif account_type == "savings":
             self.savings_account.withdraw(amount)
-            return self
+        return self
 
     def display_user_balance(self):
         self.checking_account.display_account_info(self.name, "checking")
