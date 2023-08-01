@@ -1,7 +1,7 @@
 const str1 = "object oriented programming";
 const str2 = "abstract polymorphism inheritance encapsulation";
 const str3 = "software development life cycle";
-const str4 = " global  information tracker";
+const str4 = " global  information tracker    ";
 
 function acronymize(str) {
 	var arr = str.split(" ");
