@@ -1,3 +1,4 @@
+# BANK ACCOUNT CLASS
 class BankAccount:
     all_accounts = []
 
@@ -39,6 +40,7 @@ class BankAccount:
             return self
 
 
+# USER CLASS
 class User:
     def __init__(self, name, email):
         self.name = name
