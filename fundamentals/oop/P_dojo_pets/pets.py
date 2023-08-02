@@ -26,15 +26,3 @@ class Dog(Pet):
         self.tricks = tricks
         self.health = health
         self.energy = energy
-
-    def sleep(self):
-        return super().sleep()
-
-    def eat(self):
-        return super().eat()
-
-    def play(self):
-        return super().play()
-
-    def noise(self):
-        return super().noise()
