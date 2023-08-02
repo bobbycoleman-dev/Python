@@ -20,7 +20,7 @@ class Player:
     def display_player_list(cls):
         for player in cls.player_list:
             print(
-                f"<Name: {player.name}\nAge: {player.age}\nPosition: {player.position}\nTeam: {player.team}>"
+                f"<Name: {player.name}\nAge: {player.age}\nPosition: {player.position}\nTeam: {player.team}>\n"
             )
 
 
