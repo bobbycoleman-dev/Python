@@ -37,33 +37,59 @@ Put consecs into empty array, pull out arr[0] and arr[arr.length],
  * @returns {string} The given page numbers as comma separated hyphenated
  *    page ranges.
  */
-function bookIndex(nums) {
-	var joinedStr = "";
-	var separator1 = ", ";
-	var separator2 = "-";
-	var tempArr = [];
-	var consecStr = "";
-	for (var i = 0; i < nums.length; i++) {
-		// Checks if nums starts with a consec, if not pushes to joined str
-		if (nums[i] + 1 != nums[i + 1]) {
-			joinedStr += nums[i];
-			joinedStr += separator1;
+// function bookIndex(nums) {
+// 	var joinedStr = "";
+// 	var separator1 = ", ";
+// 	var separator2 = "-";
+// 	var tempArr = [];
+// 	var consecStr = "";
+// 	for (var i = 0; i < nums.length; i++) {
+// 		// Checks if nums starts with a consec, if not pushes to joined str
+// 		if (nums[i] + 1 != nums[i + 1]) {
+// 			joinedStr += nums[i];
+// 			joinedStr += separator1;
 
-			// Check if [i+1] = [i] + 1 // i.e. [i] = 14 + 1 == [i+1] = 15
-		} else {
-			if (nums[i] - 1 == nums[i - 1] && nums[i] + 1 != nums[i + 1]) {
-				tempArr.push(nums[i]);
-			} else if (nums[i + 1] == nums[i] + 1) {
-				tempArr.push(nums[i]);
+// 			// Check if [i+1] = [i] + 1 // i.e. [i] = 14 + 1 == [i+1] = 15
+// 		} else {
+// 			if (nums[i] - 1 == nums[i - 1] && nums[i] + 1 != nums[i + 1]) {
+// 				tempArr.push(nums[i]);
+// 			} else if (nums[i + 1] == nums[i] + 1) {
+// 				tempArr.push(nums[i]);
+// 			}
+// 			consecStr += tempArr[0];
+// 			consecStr += separator2;
+// 			consecStr += tempArr[tempArr.length - 1];
+// 			joinedStr += consecStr;
+// 		}
+// 	}
+
+// 	console.log(joinedStr);
+// }
+
+function bookIndex(nums) {
+	var newStr = "";
+	for (let i = 0; i < nums.length; i++) {
+		if (nums[i + 1] - nums[i] != 1) {
+			newStr += nums[i];
+			if (i < nums.length - 1) {
+				newStr += ", ";
 			}
-			consecStr += tempArr[0];
-			consecStr += separator2;
-			consecStr += tempArr[tempArr.length - 1];
-			joinedStr += consecStr;
+		} else {
+			var start = nums[i];
+			var end = 0;
+			while (nums[i + 1] - nums[i] === 1) {
+				end = nums[i + 1];
+				i++;
+			}
+			newStr += start + "-" + end;
+			if (i < nums.length - 1) {
+				newStr += ", ";
+			}
 		}
 	}
-
-	console.log(joinedStr);
+	return newStr;
 }
 
-bookIndex(nums1);
+console.log(bookIndex(nums1));
+console.log(bookIndex(nums2));
+console.log(bookIndex(nums3));
