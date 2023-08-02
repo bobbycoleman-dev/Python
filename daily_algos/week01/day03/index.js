@@ -1,7 +1,7 @@
-const arr1 = [1, 2, 3];
+const arr1 = ["a", "b", "c", "d"];
 const separator1 = ", ";
 
-const arr2 = [1, 2, 3];
+const arr2 = [1, 2, 3, 4];
 const separator2 = "-";
 
 const arr3 = [1, 2, 3];
@@ -16,7 +16,7 @@ const separator5 = ", ";
 function join(arr, separator) {
 	var joinedStr = "";
 	for (var i = 0; i < arr.length; i++) {
-		if (arr[i] == arr.length) {
+		if (arr[i] == arr[arr.length - 1]) {
 			joinedStr += arr[i];
 		} else {
 			joinedStr += arr[i];

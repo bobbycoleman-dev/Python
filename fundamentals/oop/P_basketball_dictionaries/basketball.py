@@ -95,5 +95,5 @@ for player in players:
 # BONUS PART 3
 Player.get_teams(players)
 
-# DISPLAY BONUS LIST
+# DISPLAY BONUS
 Player.display_player_list()
