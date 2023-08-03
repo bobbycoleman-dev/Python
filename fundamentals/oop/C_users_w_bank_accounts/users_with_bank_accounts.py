@@ -76,11 +76,13 @@ class User:
         other_user.checking_account.balance += amount
 
 
+checking = "checking"
+
 user1 = User("Bobby Coleman", "bobby@email.com")
 user1.add_savings_account()
 
-user1.make_deposit(1500, "checking").make_deposit(500, "savings")
-user1.make_withdraw(500, "checking").make_withdraw(250, "savings")
+user1.make_deposit(1500, checking).make_deposit(500, "savings")
+user1.make_withdraw(500, checking).make_withdraw(250, "savings")
 
 user2 = User("Joe Dirt", "mulletsrcool@hotrod.com")
 
