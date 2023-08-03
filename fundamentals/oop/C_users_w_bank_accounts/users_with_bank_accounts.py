@@ -71,17 +71,21 @@ class User:
         return self
 
     def transfer_money(self, amount, other_user):
+        print(f"${amount} transferred to {other_user.name}'s account.")
         self.checking_account.balance -= amount
         other_user.checking_account.balance += amount
 
 
-user1 = User("Bobby", "bobby@email.com")
+user1 = User("Bobby Coleman", "bobby@email.com")
 user1.add_savings_account()
 
 user1.make_deposit(1500, "checking").make_deposit(500, "savings")
 user1.make_withdraw(500, "checking").make_withdraw(250, "savings")
 
-user2 = User("Joe", "mulletsrcool@hotrod.com")
+user2 = User("Joe Dirt", "mulletsrcool@hotrod.com")
+
+user1.display_user_balance()
+user2.display_user_balance()
 user1.transfer_money(100, user2)
 user1.display_user_balance()
 user2.display_user_balance()
