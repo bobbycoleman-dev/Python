@@ -121,4 +121,4 @@ my_list.add_to_back("A").add_to_back("B").add_to_back("C").add_to_back("D").add_
     "E"
 )
 
-my_list.remove_val("Bob").print_values()
+my_list.remove_val("Bob")
