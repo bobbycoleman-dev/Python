@@ -9,8 +9,18 @@ def index():
 
 
 @app.route("/play")
-def play():
-    return render_template("index.html")
+def play(x=3):
+    return render_template("index.html", x=x)
+
+
+@app.route("/play/<int:x>")
+def play_x(x):
+    return render_template("index.html", x=x)
+
+
+@app.route("/play/<int:x>/<string:color>")
+def play_color(x, color):
+    return render_template("index.html", x=x, color=color)
 
 
 if __name__ == "__main__":
