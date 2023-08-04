@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link
+			href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
+			rel="stylesheet"
+			integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
+			crossorigin="anonymous" />
+		<title>Dojo Survey</title>
+	</head>
+	<body>
+		<div class="container align-items-center w-50">
+			<h1 class="text-center text-primary">{{ session.dojoname }}</h1>
+			<p>
+				<span class="text-decoration-underline">Dojo Location</span>
+				: {{ session.location }}
+			</p>
+			<p>
+				<span class="text-decoration-underline">Favorite Language</span>
+				: {{ session.language }}
+			</p>
+			<p>
+				<span class="text-decoration-underline">Comment</span>
+				: {{ session.comments }}
+			</p>
+			<p>{{ session.dojoname }} {{ session.btnradio }}</p>
+			<a href="/" class="btn btn-primary">Home</a>
+		</div>
+	</body>
+</html>
