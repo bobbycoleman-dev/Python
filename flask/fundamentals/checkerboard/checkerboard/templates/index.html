@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{{ url_for('static', filename = 'style.css') }}">
+    <title>Checkerbooard</title>
+</head>
+
+<body>
+    <div class="container">
+        <h1>***Checkerboard***</h1>
+        <div class="checkerboard">
+            <!-- Y value -->
+            {% for tile in range(y) %}
+            {% if tile % 2 == 0 %}
+            <div class="row">
+                <!-- X Value -->
+                {% for tile in range(x) %}
+                {% if tile % 2 == 0 %}
+                <div class="tile" style="background-color: {{ color1 }} ;"></div>
+                {% else %}
+                <div class="tile" style="background-color: {{ color2 }} ;"></div>
+                {% endif %}
+                {% endfor %}
+            </div>
+            {% else %}
+            <div class="row">
+                <!-- X Value -->
+                {% for tile in range(x) %}
+                {% if tile % 2 == 0 %}
+                <div class="tile" style="background-color: {{ color2 }};"></div>
+                {% else %}
+                <div class="tile" style="background-color: {{ color1 }};"></div>
+                {% endif %}
+                {% endfor %}
+            </div>
+            {% endif %}
+            {% endfor %}
+
+        </div>
+    </div>
+</body>
+
+</html>
