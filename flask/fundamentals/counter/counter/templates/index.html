@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link
+			href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
+			rel="stylesheet"
+			integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
+			crossorigin="anonymous" />
+		<title>Counter</title>
+	</head>
+	<body>
+		<div class="container text-center">
+			<h1>Counter</h1>
+			<p>{{session.count}}</p>
+			<div
+				class="d-flex gap-3 w-50 mx-auto justify-content-center align-items-center">
+				<a href="/count" class="btn btn-primary">Add 1</a>
+				<a href="/two" class="btn btn-success">Add 2</a>
+				<a href="/reset" class="btn btn-danger">Reset</a>
+			</div>
+			<form action="/add" class="m-3" method="post">
+				<input type="text" name="add" placeholder="add to count" />
+				<button type="submit" class="btn btn-secondary">
+					Add Your Count
+				</button>
+			</form>
+		</div>
+	</body>
+</html>
