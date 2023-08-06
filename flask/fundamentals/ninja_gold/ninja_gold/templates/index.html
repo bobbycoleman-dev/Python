@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link
+			href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
+			rel="stylesheet"
+			integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
+			crossorigin="anonymous" />
+		<title>Ninja Gold</title>
+	</head>
+	<body>
+		<div class="container">
+			<h1 class="text-warning text-center">Ninja Gold</h1>
+			<p class="text-center">Earn 250 gold in 15 moves or less to win</p>
+			<div class="counter d-flex gap-2 align-items-center m-3">
+				<p>Your Gold:</p>
+				<p class="border w-25 p-1">{{ session.gold }}</p>
+			</div>
+			<div class="container d-flex gap-2">
+				<div
+					class="container border p-2 d-flex flex-column align-items-center">
+					<p>Farm</p>
+					<p style="font-size: small">(earn 10-20 gold)</p>
+					<form action="/process_money" method="post">
+						<input type="hidden" name="building" , value="farm" />
+						<button
+							type="submit"
+							class="btn btn-warning"
+							{{session.disabled}}>
+							Find Gold!
+						</button>
+					</form>
+				</div>
+				<div
+					class="container border p-2 d-flex flex-column align-items-center">
+					<p>Cave</p>
+					<p style="font-size: small">(earn 5-10 gold)</p>
+					<form action="/process_money" method="post">
+						<input type="hidden" name="building" , value="cave" />
+						<button
+							type="submit"
+							class="btn btn-warning"
+							{{session.disabled}}>
+							Find Gold!
+						</button>
+					</form>
+				</div>
+				<div
+					class="container border p-2 d-flex flex-column align-items-center">
+					<p>House</p>
+					<p style="font-size: small">(earn 2-5 gold)</p>
+					<form action="/process_money" method="post">
+						<input type="hidden" name="building" , value="house" />
+						<button
+							type="submit"
+							class="btn btn-warning"
+							{{session.disabled}}>
+							Find Gold!
+						</button>
+					</form>
+				</div>
+				<div
+					class="container border p-2 d-flex flex-column align-items-center">
+					<p>Casino</p>
+					<p class="text-center" style="font-size: small">
+						(earn/takes 0-50 gold)
+					</p>
+					<form action="/process_money" method="post">
+						<input type="hidden" name="building" , value="casino" />
+						<button
+							type="submit"
+							class="btn btn-warning"
+							{{session.disabled}}>
+							Find Gold!
+						</button>
+					</form>
+				</div>
+			</div>
+			<div class="container mt-3">
+				<div>Activity</div>
+				<div>moves remainging: {{ 15 - session.activity|length }}</div>
+				<div
+					class="border w-100 p-2 overflow-y-scroll"
+					style="height: 150px">
+					{% for i in session.activity[::-1] %} {% if "Earned" in i %}
+					<div class="text-success">{{i}}</div>
+					{%elif "won" in i%}
+					<div class="text-success">{{i}}</div>
+					{%elif "lost" in i%}
+					<div class="text-danger">{{i}}</div>
+					{% endif %} {% endfor %}
+				</div>
+				{% if session.gold >= 250 and session.activity|length <= 15 %}
+				<p class="text-center mt-3 mb-3 fs-4">You Won!</p>
+				<a href="/reset" class="btn btn-success w-100">Reset</a>
+				{% elif session.gold < 250 and session.activity|length == 15 %}
+				<p class="text-center mt-3 mb-3 fs-4">You lost!</p>
+				<a href="/reset" class="btn btn-danger w-100">Reset</a>
+				{% endif %}
+			</div>
+		</div>
+	</body>
+</html>
