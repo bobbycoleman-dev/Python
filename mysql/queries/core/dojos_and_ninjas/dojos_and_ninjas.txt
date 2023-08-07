@@ -1,0 +1,69 @@
+INSERT INTO dojos (name)
+VALUES('Online)
+
+INSERT INTO dojos (name)
+VALUES('Burbank)
+
+INSERT INTO dojos (name)
+VALUES('Bellevue)
+
+DELETE FROM dojos 
+WHERE name = "Online"
+
+DELETE FROM dojos 
+WHERE name = "Burbank"
+
+DELETE FROM dojos 
+WHERE name = "Bellevue"
+
+INSERT INTO dojos (name)
+VALUES('Online)
+
+INSERT INTO dojos (name)
+VALUES('Burbank)
+
+INSERT INTO dojos (name)
+VALUES('Bellevue)
+
+INSERT INTO ninjas (first_name, last_name, age, dojo_id)
+VALUES ("Bobby", "Coleman", 32, 4)
+
+INSERT INTO ninjas (first_name, last_name, age, dojo_id)
+VALUES ("Luke", "Skywalker", 20, 4)
+
+INSERT INTO ninjas (first_name, last_name, age, dojo_id)
+VALUES ("Han", "Solo", 28, 4)
+
+INSERT INTO ninjas (first_name, last_name, age, dojo_id)
+VALUES ("Joe", "Dirt", 45, 5)
+
+INSERT INTO ninjas (first_name, last_name, age, dojo_id)
+VALUES ("Spongebob", "Squarepants", 35, 5)
+
+INSERT INTO ninjas (first_name, last_name, age, dojo_id)
+VALUES ("John", "Wick", 52, 5)
+
+INSERT INTO ninjas (first_name, last_name, age, dojo_id)
+VALUES ("Marty", "McFly", 18, 6)
+
+INSERT INTO ninjas (first_name, last_name, age, dojo_id)
+VALUES ("Emmet", "Brown", 72, 6)
+
+INSERT INTO ninjas (first_name, last_name, age, dojo_id)
+VALUES ("Biff", "Tannen", 55, 6)
+
+SELECT * FROM ninjas
+WHERE dojo_id = 4
+
+SELECT * FROM ninjas
+WHERE dojo_id = 6
+
+SELECT * FROM ninjas
+WHERE dojo_id = 5
+
+SELECT * FROM ninjas
+JOIN dojos ON dojos.id = ninjas.dojo_id
+WHERE ninjas.id = 6
+
+SELECT * FROM ninjas
+JOIN dojos ON dojos.id = ninjas.dojo_id
