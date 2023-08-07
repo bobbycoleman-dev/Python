@@ -12,13 +12,17 @@
 	</head>
 	<body>
 		<div class="container">
+			{# HEADER #}
 			<h1 class="text-warning text-center">Ninja Gold</h1>
 			<p class="text-center">Earn 250 gold in 15 moves or less to win</p>
+			{# GOLD TRACKER #}
 			<div class="counter d-flex gap-2 align-items-center m-3">
 				<p>Your Gold:</p>
 				<p class="border w-25 p-1">{{ session.gold }}</p>
 			</div>
+			{# GOLD LOCATIONS #}
 			<div class="container d-flex gap-2">
+				{# FARM #}
 				<div
 					class="container border p-2 d-flex flex-column align-items-center">
 					<p>Farm</p>
@@ -33,6 +37,7 @@
 						</button>
 					</form>
 				</div>
+				{# CAVE #}
 				<div
 					class="container border p-2 d-flex flex-column align-items-center">
 					<p>Cave</p>
@@ -47,6 +52,7 @@
 						</button>
 					</form>
 				</div>
+				{# HOUSE #}
 				<div
 					class="container border p-2 d-flex flex-column align-items-center">
 					<p>House</p>
@@ -61,6 +67,7 @@
 						</button>
 					</form>
 				</div>
+				{# CASINO #}
 				<div
 					class="container border p-2 d-flex flex-column align-items-center">
 					<p>Casino</p>
@@ -78,9 +85,10 @@
 					</form>
 				</div>
 			</div>
+			{# ACTIVITY TRACKER #}
 			<div class="container mt-3">
 				<div>Activity</div>
-				<div>moves remainging: {{ 15 - session.activity|length }}</div>
+				<div>moves remaining: {{ 15 - session.activity|length }}</div>
 				<div
 					class="border w-100 p-2 overflow-y-scroll"
 					style="height: 150px">
@@ -92,7 +100,8 @@
 					<div class="text-danger">{{i}}</div>
 					{% endif %} {% endfor %}
 				</div>
-				{% if session.gold >= 250 and session.activity|length <= 15 %}
+				{# WIN/LOSE & RESET BUTTON #} {% if session.gold >= 250 and
+				session.activity|length <= 15 %}
 				<p class="text-center mt-3 mb-3 fs-4">You Won!</p>
 				<a href="/reset" class="btn btn-success w-100">Reset</a>
 				{% elif session.gold < 250 and session.activity|length == 15 %}

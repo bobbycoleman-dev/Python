@@ -7,6 +7,9 @@ app.secret_key = "f892f4210b534fe545d76d872d3b7c6dd504b041bbf8d982d336dfdbf752be
 
 @app.route("/")
 def index():
+    """
+    Set session keys for 'gold', 'activity', and 'disabled' for buttons
+    """
     if "gold" not in session:
         session["gold"] = 0
         session["activity"] = []
