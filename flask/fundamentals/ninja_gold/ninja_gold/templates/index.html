@@ -100,7 +100,7 @@
 					<div class="text-danger">{{i}}</div>
 					{% endif %} {% endfor %}
 				</div>
-				{# WIN/LOSE & RESET BUTTON #} {% if session.gold >= 250 and
+				{# WIN/LOSE & RESET BUTTON #} {% if session.gold >= 200 and
 				session.activity|length <= 15 %}
 				<p class="text-center mt-3 mb-3 fs-4">You Won!</p>
 				<a href="/reset" class="btn btn-success w-100">Reset</a>
