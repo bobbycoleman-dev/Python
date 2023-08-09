@@ -1,5 +1,5 @@
 from users_app import app
-from flask import render_template, redirect, request, session, flash
+from flask import render_template, redirect, request
 from users_app.models.user import User
 
 
