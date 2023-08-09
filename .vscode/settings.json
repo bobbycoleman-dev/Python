@@ -17,5 +17,12 @@
 	},
 	"files.associations": {
 		"*.html": "jinja-html"
-	}
+	},
+	"cSpell.words": [
+		"cursorclass",
+		"lastrowid",
+		"mogrify",
+		"pymysql",
+		"rootroot"
+	]
 }
