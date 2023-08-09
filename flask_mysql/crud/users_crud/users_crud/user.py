@@ -1,11 +1,11 @@
 # import the function that will return an instance of a connection
-from mysqlconnection import connectToMySQL
+from mysql_connection import connect_to_mysql
+
+DATABASE = "users_schema"
 
 
 # model the class after the friend table from our database
 class User:
-    db = "users_schema"
-
     def __init__(self, data):
         self.id = data["id"]
         self.first_name = data["first_name"]
@@ -20,16 +20,16 @@ class User:
                 SELECT * FROM users
                 WHERE id = %(id)s;
                 """
-        results = connectToMySQL(cls.db).query_db(query, {"id": id})
+        results = connect_to_mysql(DATABASE).query_db(query, {"id": id})
         return cls(results[0])
 
     @classmethod
     def get_all(cls):
         query = "SELECT * FROM users;"
-        results = connectToMySQL(User.db).query_db(query)
+        results = connect_to_mysql(DATABASE).query_db(query)
         users = []
         for user in results:
-            users.append(cls(user))
+            users.append(User(user))
         return users
 
     @classmethod
@@ -38,7 +38,7 @@ class User:
                 INSERT INTO users ( first_name, last_name, email) 
                 VALUES ( %(fname)s, %(lname)s, %(email)s);
                 """
-        results = connectToMySQL(cls.db).query_db(query, data)
+        results = connect_to_mysql(DATABASE).query_db(query, data)
         return results
 
     @classmethod
@@ -48,7 +48,7 @@ class User:
                 SET first_name=%(fname)s, last_name=%(lname)s, email=%(email)s
                 WHERE id = %(id)s;
                 """
-        results = connectToMySQL(cls.db).query_db(query, data)
+        results = connect_to_mysql(DATABASE).query_db(query, data)
         return results
 
     @classmethod
@@ -58,5 +58,5 @@ class User:
                 WHERE id = %(id)s;
                 """
         data = {"id": id}
-        results = connectToMySQL(cls.db).query_db(query, data)
+        results = connect_to_mysql(DATABASE).query_db(query, data)
         return results
