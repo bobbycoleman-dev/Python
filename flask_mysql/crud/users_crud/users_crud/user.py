@@ -20,8 +20,9 @@ class User:
                 SELECT * FROM users
                 WHERE id = %(id)s;
                 """
-        results = connect_to_mysql(DATABASE).query_db(query, {"id": id})
-        return cls(results[0])
+        data = {"id": id}
+        results = connect_to_mysql(DATABASE).query_db(query, data)
+        return User(results[0])
 
     @classmethod
     def get_all(cls):
