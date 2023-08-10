@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link
+			href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
+			rel="stylesheet"
+			integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
+			crossorigin="anonymous" />
+		<title>Books</title>
+	</head>
+
+	<body>
+		<nav class="navbar navbar-expand-lg bg-body-tertiary">
+			<div class="container">
+				<a class="navbar-brand" href="/">Books</a>
+				<div class="">
+					<div class="d-flex gap-3 text-end">
+						<a class="nav-link active" href="/authors">All Authors</a>
+						<a class="nav-link" href="/books">All Books</a>
+					</div>
+				</div>
+			</div>
+		</nav>
+
+		<div class="container mt-3">
+			<div class="row">
+				<!-- Create new Author mini form -->
+				<div class="col col-lg-6">
+					<h2>New Author</h2>
+					<form action="/authors/create" method="post">
+						<label for="author_name" class="form-label"> Author Name: </label>
+						<input type="text" name="author_name" class="form-control" />
+						<button type="submit" class="btn btn-primary mt-3 shadow">Create</button>
+					</form>
+				</div>
+				<!-- Display list of all Authors -->
+				<div class="col col-lg-6">
+					<h1>All Authors</h1>
+					<div class="card shadow">
+						<div class="card-body">
+							{% for author in authors %}
+							<div class="mb-3">
+								<a href="/author/{{ author.id }}/favorites" class="text-warning"> {{author.name}} </a>
+							</div>
+							{% endfor %}
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- Create new Book button -->
+			<div class="text-center">
+				<a href="/books" class="btn btn-success mt-5">Add New Book</a>
+			</div>
+		</div>
+	</body>
+</html>
