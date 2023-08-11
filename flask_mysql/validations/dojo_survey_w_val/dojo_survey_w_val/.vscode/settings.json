@@ -1,0 +1,22 @@
+{
+	"[python]": {
+		"diffEditor.ignoreTrimWhitespace": false,
+		"editor.defaultFormatter": "ms-python.black-formatter",
+		"editor.formatOnSave": true,
+		"editor.formatOnType": true,
+		"editor.wordBasedSuggestions": false
+	},
+	"css.styleSheets": [
+		"https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css",
+		"/style.css",
+		"style.css",
+		"${fileBasenameNoExtension}.css"
+	],
+	"emmet.includeLanguages": {
+		"jinja-html": "html"
+	},
+	"files.associations": {
+		"*.html": "jinja-html"
+	},
+	"cSpell.words": ["cursorclass", "lastrowid", "mogrify", "pymysql", "rootroot"]
+}
